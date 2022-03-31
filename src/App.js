@@ -67,4 +67,4 @@ function deleteMessage(msgId) {
   .catch((err) => console.log(err))
 }
 
-export default App;
+export default App; 
