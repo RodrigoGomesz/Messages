@@ -9,7 +9,7 @@ router.post("/sendMessage", async (req, res) => {
         return (
             res.send({ message: "Menssagem enviada com sucesso.", a: msg.message})
             )
-    } catch (err) {
+    } catch(err) {
         return res.send({message: err})
     }
 })
@@ -21,7 +21,7 @@ router.get("/getMessages", async (req, res) => {
         return (
             res.send({message: result})
         )
-    } catch (err) {
+    } catch(err) {
         console.log(err)
         return res.send({ message: err})
     }

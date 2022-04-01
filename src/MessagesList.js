@@ -4,7 +4,7 @@ import { FaEllipsisV } from "react-icons/fa";
 export function MessagesList({messages, deleteMessage, update}) {    
 
     const messagesListItems = messages.map((index) =>
-        <li className="card message-container ">
+        <li className="card message-container " key={index}>
             <div className="message-container-head">
                 <div className="card-link message-user">
                     {index.name}

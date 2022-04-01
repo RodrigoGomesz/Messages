@@ -19,23 +19,25 @@ function App() {
 
   return (
     <div className="App">
-      <NewMessage 
-        newMessage={newMessage} 
-        setNewMessage={setNewMessage} 
-        sendNewMessage={sendNewMessage}
-        update={updatesMessagesList}
-      />
-      <ul>
-        { 
-          messages === undefined 
-            ? "O_O" 
-            : <MessagesList 
-                messages={messages} 
-                deleteMessage={deleteMessage}
-                update={updatesMessagesList}
-              />
-        }
-      </ul>
+      <main className="wrapper">
+        <NewMessage 
+          newMessage={newMessage} 
+          setNewMessage={setNewMessage} 
+          sendNewMessage={sendNewMessage}
+          update={updatesMessagesList}
+        />
+        <ul className="message-list">
+          { 
+            messages === undefined 
+              ? "O_O" 
+              : <MessagesList 
+                  messages={messages} 
+                  deleteMessage={deleteMessage}
+                  update={updatesMessagesList}
+                />
+          }
+        </ul>
+      </main>
     </div>
   );
 }
@@ -52,7 +54,7 @@ async function getMessages(){
 }
 
 function sendNewMessage(msg) {
-   axios.post( apiUrl + "getMessages" || "http://localhost:8000/sendMessage", {
+   axios.post( apiUrl + "/sendMessage" || "http://localhost:8000/sendMessage", {
      name: "Anônimo", // Maybe do something later. 
      message: msg
    })
@@ -62,7 +64,7 @@ function sendNewMessage(msg) {
 
 function deleteMessage(msgId) {
   console.log(msgId)
-  axios.delete( apiUrl + "deleteMessage" || "http://localhost:8000/deleteMessage", { data: { id: msgId } })
+  axios.delete( apiUrl + "/deleteMessage" || "http://localhost:8000/deleteMessage", { data: { id: msgId } })
   .then((res) => console.log(res.data))
   .catch((err) => console.log(err))
 }
