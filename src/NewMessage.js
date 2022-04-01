@@ -28,4 +28,4 @@ export function NewMessage({newMessage, sendNewMessage, setNewMessage, update}) 
             </form>
         </div>
     )
-}
+} 
